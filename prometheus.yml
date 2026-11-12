@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: website-monitor
+    metrics_path: /metrics
+    static_configs:
+      # Use "website-monitor:8080" when running via Docker Compose.
+      # If running the Java monitor directly on the host machine, use "host.docker.internal:8080".
+      - targets: ["website-monitor:8080"]
